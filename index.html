@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rionalab.</title>
+    <link rel="shortcut icon" href="images/fav.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="/" class="logo">
+        <img src="./images/logo.png" alt="">
+    </a>
+
+    <section class="main" id="scene">
+
+        <h1 id="main-title">
+            <span>P</span>
+            <span>O</span>
+            <span>R</span>
+            <span>T</span>
+            <span>F</span>
+            <span>O</span>
+            <span>L</span>
+            <span>I</span>
+            <span>O</span>
+        </h1>
+
+        <div class="bg-h1"></div>
+
+        <div id="scene-left-hand" class="hand left">
+            <div class="a" data-depth="0.3">
+                <div class="b">
+                    <img class="img-hand" src="images/hand-left.png" alt="left hand">
+                </div>
+            </div>
+        </div>
+
+        <div id="scene-right-hand" class="hand right">
+            <img class="img-hand" data-depth="0.3" src="images/hand-right.png" alt="left hand">
+        </div>
+
+        <!-- <img data-depth="0.3" src="images/hand-right.png" alt="left hand" class="hand right"> -->
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script>
+        const mainTitle = document.getElementById('main-title')
+        const parallaxes = [
+            {
+                id: 'scene-left-hand',
+                opts: {
+                    frictionY : 0.1,
+                    scalarX : 5,
+                    scalarY : 5,
+                }
+            }, {
+                id: 'scene-right-hand',
+                opts: {
+                    frictionY : 0.1,
+                    scalarX : 5,
+                    scalarY : 7,
+                    invertY: false,
+                    invertX: false
+                }
+            }
+        ]
+
+        parallaxes.forEach(parallax => {
+            new Parallax(
+                document.getElementById(parallax.id),
+                parallax.opts
+            )
+        })
+        document.querySelectorAll('#main-title span').forEach(span => {
+            span.addEventListener("mouseover", e => {
+
+            })
+        })
+
+        const halfWindowY = Math.floor(window.innerHeight / 2)
+        const halfWindowX = Math.floor(window.innerWidth / 2)
+        const hands = document.querySelectorAll('.img-hand')
+        let shadowY = -200
+        let shadowX = 0
+
+        window.addEventListener("mousemove", e => {
+            const  { clientY, clientX } = e;
+
+            shadowY = Math.floor((clientY - halfWindowY) / 6) * -1
+            shadowX = Math.floor((clientX - halfWindowX) / 20) * -1
+
+            hands.forEach(hand => {
+                hand.setAttribute('style', `filter: drop-shadow(${shadowX}px ${shadowY}px 7px rgba(0,0,0,.2));`)
+            })
+        })
+
+    </script>
+
+</body>
+</html>
