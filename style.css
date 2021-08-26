@@ -1,16 +1,94 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
 * {
   padding: 0;
   margin: 0;
+  text-decoration: none;
   box-sizing: border-box;
+}
+
+a {
+  color: #333;
+}
+
+.menu {
+  position: fixed;
+  z-index: 200;
+  top: 13%;
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  right: 7%;
+}
+.menu > * {
+  display: inline-block;
+  margin-left: 24px;
+}
+.menu .burger {
+  display: grid;
+  width: 24px;
+  justify-items: end;
+}
+.menu .burger:hover div:nth-child(1) {
+  animation: burger1 1.2s infinite;
+  animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+.menu .burger:hover div:nth-child(2) {
+  animation: burger2 1s infinite;
+  animation-delay: 0.2s;
+  animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+.menu .burger:hover div:nth-child(3) {
+  animation-delay: 0.4s;
+  animation: burger3 1.4s infinite;
+  animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+.menu .burger div {
+  border-radius: 200;
+  margin-bottom: 4px;
+  background: #333;
+  height: 3.3px;
+}
+.menu .burger div:nth-child(1) {
+  width: 70%;
+}
+.menu .burger div:nth-child(2) {
+  width: 100%;
+}
+.menu .burger div:nth-child(3) {
+  width: 60%;
+}
+.menu .sayhi {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 1000px;
+  font-weight: 500;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+}
+.menu .sayhi:hover span.dot {
+  display: inline-block;
+  animation: sayhiDots 0.6s ease-out;
+}
+.menu .sayhi:hover span.dot:first-child {
+  animation-delay: 0.3s;
+}
+.menu .sayhi:hover span.dot:last-child {
+  animation-delay: 0.6s;
+}
+.menu .sayhi span.dots {
+  font-size: 20px;
+  letter-spacing: -3px;
+  line-height: 0;
+  font-weight: 600;
 }
 
 .logo {
   position: fixed;
+  z-index: 200;
   top: 13%;
   left: 7%;
   width: 120px;
-  z-index: 200;
 }
 .logo img {
   width: 100%;
@@ -42,7 +120,7 @@ section.main .hand {
 section.main .hand img {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0px 76px 13px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0px 76px 13px rgba(0, 0, 0, 0.1));
   display: block;
   object-fit: contain;
 }
@@ -61,12 +139,16 @@ section.main .hand.left .b {
 }
 section.main .hand.right {
   animation-name: rightHand;
+  animation-direction: forwards;
   animation-duration: 6s, 4s;
   animation-delay: 0, 3s;
   animation-iteration-count: 1, infinite;
-  top: 25%;
-  right: -15px;
-  width: 700px;
+  top: 20%;
+  right: -130px;
+  width: 800px;
+}
+section.main .hand.right .b {
+  transform: rotate(-7deg);
 }
 section.main .bg-h1 {
   background: white;
@@ -104,6 +186,99 @@ section.main h1 span:hover {
   filter: blur(3px);
 }
 
+.scroll-down {
+  position: absolute;
+  right: 40px;
+  cursor: pointer;
+  z-index: 101;
+  bottom: 7%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+}
+.scroll-down span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #333;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  animation: scrolldown 1.3s ease-out infinite;
+}
+.scroll-down svg {
+  margin-top: 10px;
+  width: 10px;
+}
+
+@keyframes scrolldown {
+  0% {
+    transform: translateY(0px);
+    letter-spacing: -0.3px;
+  }
+  50% {
+    letter-spacing: 0.3px;
+    transform: translateY(-5px);
+  }
+  100% {
+    letter-spacing: -0.3px;
+    transform: translateY(0px);
+  }
+}
+@keyframes burger1 {
+  0% {
+    width: 70%;
+  }
+  50% {
+    width: 1%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+@keyframes burger2 {
+  0% {
+    width: 100%;
+  }
+  50% {
+    width: 1%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes burger3 {
+  0% {
+    width: 60%;
+  }
+  50% {
+    width: 1%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+@keyframes sayhiDots {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 @keyframes mainTitle {
   from {
     opacity: 0;
@@ -139,7 +314,7 @@ section.main h1 span:hover {
   }
   to {
     transform: rotate(0deg);
-    right: -15px;
+    right: -130px;
   }
 }
 @keyframes rightHandY {
