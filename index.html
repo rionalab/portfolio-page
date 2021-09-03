@@ -7,6 +7,7 @@
     <title>rionalab.</title>
     <link rel="shortcut icon" href="images/fav.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./locomotive-scroll.min.css">
 </head>
 <body>
 
@@ -34,50 +35,150 @@
     </div>
 
 
-    <section class="main" id="scene">
-
-        <div class="scroll-down">
-            <span>scroll down</span>
-            <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-down fa-w-14 fa-5x"><path fill="#333" d="M443.5 248.5l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L241 419.9V44c0-6.6-5.4-12-12-12h-10c-6.6 0-12 5.4-12 12v375.9L28.5 241.4c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.8 4.8-12.3.1-17z" class=""></path></svg>
-        </div>
-
-        <h1 id="main-title">
-            <span>P</span>
-            <span>O</span>
-            <span>R</span>
-            <span>T</span>
-            <span>F</span>
-            <span>O</span>
-            <span>L</span>
-            <span>I</span>
-            <span>O</span>
-        </h1>
-
-        <div class="bg-h1"></div>
-
-        <div id="scene-left-hand" class="hand left">
-            <div class="a" data-depth="0.3">
-                <div class="b">
-                    <img class="img-hand" src="images/hand-left.png" alt="left hand">
-                </div>
+    <div data-scroll-container>
+        <section class="main" id="scene" data-scroll-section>
+            <div class="scroll-down">
+                <span>scroll down</span>
+                <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-down fa-w-14 fa-5x"><path fill="#333" d="M443.5 248.5l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L241 419.9V44c0-6.6-5.4-12-12-12h-10c-6.6 0-12 5.4-12 12v375.9L28.5 241.4c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.8 4.8-12.3.1-17z" class=""></path></svg>
             </div>
-        </div>
 
-        <div id="scene-right-hand" class="hand right">
-            <div class="a" data-depth="0.3">
-                <div class="b">
-                    <div class="c">
-                        <img class="img-hand"  src="images/hand-right.png" alt="left hand">
+            <h1 id="main-title">
+                <span data-scroll  data-scroll-speed="3" data-scroll-position="top">P</span>
+                <span data-scroll  data-scroll-speed="2" data-scroll-position="top">O</span>
+                <span data-scroll  data-scroll-speed="1" data-scroll-position="top">R</span>
+                <span data-scroll  data-scroll-speed="2" data-scroll-position="top">T</span>
+                <span data-scroll  data-scroll-speed="3" data-scroll-position="top">F</span>
+                <span data-scroll  data-scroll-speed="2" data-scroll-position="top">O</span>
+                <span data-scroll  data-scroll-speed="1" data-scroll-position="top">L</span>
+                <span data-scroll  data-scroll-speed="2" data-scroll-position="top">I</span>
+                <span data-scroll  data-scroll-speed="3" data-scroll-position="top">O</span>
+            </h1>
+
+            <div class="bg-h1"></div>
+
+            <div id="scene-left-hand" class="hand left">
+                <div class="a" data-depth="0.3">
+                    <div class="b">
+                        <div
+                            class="bc"
+                            data-scroll
+                            data-scroll-direction="horizontal"
+                            data-scroll-position="top"
+                            data-scroll-target="#scene-left-hand"
+                            data-scroll-speed="2">
+                                <img class="img-hand" src="images/hand-left.png" alt="left hand">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- <img data-depth="0.3" src="images/hand-right.png" alt="left hand" class="hand right"> -->
-    </section>
+            <div id="scene-right-hand" class="hand right">
+                <div class="a" data-depth="0.3">
+                    <div class="b">
+                        <div
+                            data-scroll
+                            data-scroll-direction="horizontal"
+                            data-scroll-position="top"
+                            data-scroll-target="#scene-left-hand"
+                            data-scroll-speed="-2"
+                            class="c">
+                            <img class="img-hand"  src="images/hand-right.png" alt="left hand">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="quote1" data-scroll-section id="quote1">
+
+            <div class="img" data-scroll-target="#quote1" data-scroll data-scroll-speed="0"  data-scroll-offset="200">
+                <div data-scroll data-scroll-target="#quote1" data-scroll-speed="-2">
+                    <img src="./images/pexels-luiz-felipe-rodrigues-de-oliveira-7475926.jpg" alt="">
+                </div>
+            </div>
+
+            <h1 data-scroll  data-scroll-target="#quote1" data-scroll-speed="-1" data-scroll-repeat="true">
+                Work that
+            </h1>
+            <h1 data-scroll data-scroll-target="#quote1" data-scroll-speed="-1.4" data-scroll-repeat="true">
+                not only
+            </h1>
+            <h1 data-scroll data-scroll-target="#quote1" data-scroll-speed="-2" data-scroll-repeat="true">
+                looks good,
+            </h1>
+            <h2 data-scroll-delay="0.9" data-scroll data-scroll-target="#quote1" data-scroll-repeat="true" data-scroll-speed="-2.4" data-direction="top">
+                but also makes
+            </h2>
+            <h1 data-scroll data-scroll-target="#quote1" data-scroll-repeat="true" data-scroll-speed="-2.8">
+                you feel
+            </h1>
+            <h1 data-scroll data-scroll-offset="100" data-scroll-target="#quote1"  data-scroll-speed="-3">
+                <span>#something</span>
+            </h1>
+        </section>
+
+        <section class="works" data-scroll-section id="works">
+            <h1 data-scroll data-scroll-target="#works" data-scroll-speed="1">The Works</h1>
+            <h2 class="split2">
+                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="0" data-scroll-repeat="true" data-offset="0.8" style="--line-index:0;">
+                    <span class="line-pres">
+                        Nous somme un stundio digital &amp; créatif basé à Paris,
+                    </span>
+                </span>
+                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="0" data-scroll-repeat="true" data-offset="0.8" style="--line-index:1;">
+                    <span class="line-pres">
+                        nous apportons des solutions créatives et
+                    </span>
+                </span>
+                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="0" data-scroll-repeat="true" data-offset="0.8" style="--line-index:2;">
+                    <span class="line-pres">
+                        stratégiques pour votre marque.
+                    </span>
+                </span>
+            </h2>
+
+            <hr>
+
+            <div class="works-list">
+                <p><span>01.</span>ERP Philipworks</p>
+                <p><span>02.</span>ERP PT PMPS  </p>
+                <p><span>03.</span>RILIS  </p>
+                <p><span>04.</span>Mazda Asia Afrika</p>
+                <p><span>05.</span>PT Pancamas Pipasakti</p>
+                <p><span>06.</span>PT Sinarmas Gar</p>
+                <p><span>07.</span>Plantrip</p>
+                <p data-url="mjstextile.com"><span>08.</span>PT Mahugi Jaya Sejahtera</p>
+                <p data-url="siaptextile.co.id"><span>09.</span>PT SIAP Textile</p>
+                <p data-url="mahkotapropertindo.com"><span>10.</span>Mahkota Propertindo</p>
+                <p data-url="com.net.id"><span>11.</span>Comtronics Systems</p>
+                <p data-url="tirtagraciaabadi.co.id"><span>12.</span>PT Tirta Gracia Abadi</p>
+                <p data-url="aquaproof.co.id"><span>13.</span>Aquaproof</p>
+                <p data-url="xenos.co.id"><span>14.</span>PT XENOS</p>
+                <p data-url="dswip.com"><span>15.</span>Dswip Kreasindo</p>
+                <p data-url="eps.sch.id"><span>16.</span>Edu Prime School</p>
+                <p><span>17.</span>Aice</p>
+                <p><span>18.</span>Tour D Indonesia</p>
+                <p><span>19.</span>Kec. Sumur Bandung </p>
+                <p><span>20.</span>SMILE Foundation</p>
+                <p><span>21.</span>PP PAUDDIKMAS JABAR</p>
+
+
+            </div>
+        </section>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="./locomotive-scroll.min.js"></script>
     <script>
+        (function () {
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector('[data-scroll-container]'),
+                smooth: true,
+            });
+        })();
+
         const mainTitle = document.getElementById('main-title')
         const parallaxes = [
             {
@@ -114,8 +215,11 @@
         const halfWindowY = Math.floor(window.innerHeight / 2)
         const halfWindowX = Math.floor(window.innerWidth / 2)
         const hands = document.querySelectorAll('.img-hand')
+        const leftHandContainer = document.getElementById("scene-left-hand")
+        const rightHandContainer = document.getElementById("scene-right-hand")
         let shadowY = -200
         let shadowX = 0
+        let latestScrollPos = 0;
 
         window.addEventListener("mousemove", e => {
             const  { clientY, clientX } = e;
@@ -128,6 +232,15 @@
             })
         })
 
+        window.onscroll = e => {
+            const posY = Math.floor(window.pageYOffset)
+
+            console.log(posY)
+            if(posY < 500) {
+                leftHandContainer.style.left  = -180 + Math.floor(posY / 13) + 'px'
+                rightHandContainer.style.right  = -130 + Math.floor(posY / 13) + 'px'
+            }
+        }
     </script>
 
 </body>

@@ -99,14 +99,18 @@ a {
 section.main {
   height: 100vh;
   width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: -1;
   overflow: hidden;
   position: relative;
   background: white;
   background: radial-gradient(circle, white 0%, #ccc 100%);
+  display: none;
 }
 section.main::before {
   position: absolute;
-  width: calc(100vw - 50px);
+  width: calc(100vw - 55px);
   height: calc(100vh - 50px);
   z-index: 98;
   border: 30px solid white;
@@ -185,10 +189,148 @@ section.main h1 span:hover {
   transition: all 0.2s;
   filter: blur(3px);
 }
+section.portfolio {
+  background: white;
+  height: 100vh;
+  margin-top: 100vh;
+}
+section.quote1 {
+  overflow: hidden;
+  display: none;
+  background: #beff00;
+  background: linear-gradient(45deg, #beff00 0%, #fff300 100%);
+  padding: 30vh 3vw 35vh;
+  position: relative;
+}
+section.quote1 .img {
+  position: absolute;
+  width: 400px;
+  mix-blend-mode: difference;
+  right: 15vw;
+  overflow: hidden;
+  top: 30vh;
+  height: 500px;
+  box-shadow: 40px 40px 40px green;
+  opacity: 0.7;
+}
+section.quote1 .img.is-inview img {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.2s;
+}
+section.quote1 .img img {
+  width: 100%;
+  mix-blend-mode: overlay;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.8);
+  transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  object-fit: cover;
+}
+section.quote1 h2 {
+  font-size: 120px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-right: 20px;
+}
+section.quote1 h1 {
+  font-size: 120px;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+section.quote1 h1.is-inview span {
+  letter-spacing: 0px;
+  transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translateX(0px);
+  background: #fff;
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+section.quote1 h1 span {
+  font-size: 160px;
+  display: inline-block;
+  transition: all 0.6s;
+  opacity: 0;
+  transform: translateX(200px);
+  letter-spacing: 80px;
+  color: red;
+}
+section.works {
+  padding: 10% 20%;
+  font-size: 70px;
+}
+section.works h1 {
+  margin-bottom: 42px;
+}
+section.works span {
+  display: block;
+  position: relative;
+  text-transform: none;
+  max-width: 100%;
+  font: 300 normal 1.4vw/1.8vw "Suisse Intl Light";
+}
+section.works .line-mak {
+  overflow: hidden;
+}
+section.works .line-mak.is-inview:nth-child(1) span {
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+}
+section.works .line-mak.is-inview:nth-child(2) span {
+  transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+}
+section.works .line-mak.is-inview:nth-child(3) span {
+  transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+}
+section.works .line-mak.is-inview span {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+section.works .line-mak span {
+  -webkit-transform: translate3d(0, 150%, 0);
+  -moz-transform: translate3d(0, 150%, 0);
+  -ms-transform: translate3d(0, 150%, 0);
+  -o-transform: translate3d(0, 150%, 0);
+  transform: translate3d(0, 150%, 0);
+  font: 300 normal 2.8vw/3.7vw "Suisse Intl Light";
+  position: relative;
+  text-transform: none;
+  opacity: 0;
+  max-width: 100%;
+  font: 300 normal 2vw/2.6vw "Suisse Intl Light";
+}
+section.works hr {
+  margin-top: 40px;
+  border: 0;
+  border-top: 3px solid #111;
+  margin-left: -50px;
+  margin-right: -50px;
+}
+section.works .works-list {
+  margin-top: 50px;
+  columns: 200px 3;
+}
+section.works .works-list p {
+  color: #888;
+  font-size: 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+section.works .works-list p span {
+  position: absolute;
+  left: -25px;
+  top: -3px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  color: #bbb;
+}
 
 .scroll-down {
   position: absolute;
-  right: 40px;
+  right: 55px;
   cursor: pointer;
   z-index: 101;
   bottom: 7%;
@@ -219,6 +361,47 @@ section.main h1 span:hover {
 .scroll-down svg {
   margin-top: 10px;
   width: 10px;
+}
+
+.dummy {
+  background: red;
+  min-height: 100vh;
+  min-width: 100%;
+}
+.dummy.b {
+  background: #fa5880;
+}
+.dummy.s {
+  display: grid;
+  place-items: center;
+}
+
+.o-titlex {
+  margin: 0;
+  padding: 0;
+  perspective: 600px;
+  font-size: 13.5vw;
+  text-transform: uppercase;
+  perspective: 50px;
+  -webkit-perspective: 50px;
+}
+.o-titlex.is-inview .o-title_line {
+  transform: none;
+  opacity: 1;
+}
+.o-titlex .o-title_line {
+  display: block;
+  opacity: 0;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transform: translateY(100%) rotateX(-80deg);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  font-size: 0;
+}
+.o-titlex .o-title_line span {
+  display: inline-block;
+  min-width: 0.05em;
+  font-size: 13.5vw;
 }
 
 @keyframes scrolldown {
