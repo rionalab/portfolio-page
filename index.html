@@ -15,9 +15,20 @@
         <img src="./images/logo.png" alt="">
     </a>
 
+    <div class="page-menu">
+        <div class="menu-inner">
+            <div class="menu-content">
+                <div>
+                <button onclick="pageMenu.close()"><img src="./images/left-arrow.png" alt=""></button>
 
-
-
+                <h3>Thank you for checking<br/>out my portfolio.</h3>
+                <h5>Actually im still working on this page. You know, exploring things like figuring out how to express myself through this simple page. But still feel free to contact me about anything, projects, mentoring, coffee, sport. <br>
+                    <a href="https://api.whatsapp.com/send/?phone=6282127734627&text=Hello+Ricky,&app_absent=0">Say hi ..</a>
+                </h5>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="menu">
         <a href="https://api.whatsapp.com/send/?phone=6282127734627&text=Hello+Ricky,&app_absent=0" target="_blank" class="sayhi">
@@ -27,7 +38,7 @@
                 <span class="dot">.</span>
             </span>
         </a>
-        <a href="/" class="burger">
+        <a href="#" class="burger" onclick="pageMenu.open(event)">
             <div></div>
             <div></div>
             <div></div>
@@ -150,7 +161,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="./locomotive-scroll.min.js"></script>
     <script>
-
 
         const mainTitle = document.getElementById('main-title')
         const parallaxes = [
@@ -314,6 +324,20 @@
                 smooth: true,
             });
         })();
+
+        console.log(document.querySelector('.page-menu'));
+
+        const pageMenu = {
+            el : null,
+            close: () => {
+                this.el.classList.remove("show")
+            },
+            open: (e) => {
+                e.preventDefault()
+                this.el = document.querySelector('.page-menu')
+                this.el.classList.add("show")
+            }
+        }
 
         parallaxes.forEach(parallax => {
             new Parallax(

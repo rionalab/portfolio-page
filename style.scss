@@ -535,8 +535,102 @@ section {
         }
     }
 }
-
-
+.page-menu {
+    background: #ff4200;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    right: 0;
+    width: 0%;
+    z-index: 1000;
+    height: 100vh;
+    &.show {
+        width: 100vw;
+        animation: pageMenu .6s forwards;
+        .menu-inner {
+            animation: pageMenu2 2s forwards .4s;
+            animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+            &> div {
+                animation: pageMenu3 1.4s forwards 1.2s;
+            }
+        }
+    }
+    .menu-inner {
+        width: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        background: white;
+        position: absolute;
+        & >div {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            opacity: 0;
+            transform: translate(-100px, -50%);
+            h3 {
+                font-size: 72px;
+            }
+            a {
+                display: inline-block;
+                font-weight: 600;
+                    transition: all .6s;
+                margin-top: 40px;
+                &:hover {
+                    opacity: .8;
+                    letter-spacing: 1px;
+                    transition: all .6s;
+                }
+            }
+            button {
+                border: 0;
+                cursor: pointer;
+                margin-bottom: 32px;
+                background: transparent;
+                img {
+                    width: 45px;
+                }
+            }
+            h5 {
+                margin-top: 32px;
+                font-family: 'Roboto', sans-serif;
+                color: #555;
+                max-width: 100%;
+                font-size: 24px;
+                font-weight: 300;
+                width: 50%;
+                line-height: 32px;
+            }
+        }
+    }
+}
+@keyframes pageMenu {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+@keyframes pageMenu2 {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+@keyframes pageMenu3 {
+    0% {
+        opacity: 0;
+        transform: translate(-100px, -50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, -50%);
+    }
+}
 @keyframes fadeInLeft {
     0% {
         transform: translate(-80px, -50%);
