@@ -20,7 +20,7 @@
 
 
     <div class="menu">
-        <a href="/" class="sayhi">
+        <a href="https://api.whatsapp.com/send/?phone=6282127734627&text=Hello+Ricky,&app_absent=0" target="_blank" class="sayhi">
             Say hi
             <span class="dots">
                 <span class="dot">.</span>
@@ -120,51 +120,29 @@
         </section>
 
         <section class="works" data-scroll-section id="works">
-            <h1 data-scroll data-scroll-target="#works" data-scroll-speed="1">The Works</h1>
+            <h1 data-scroll data-scroll-target="#works" data-scroll-offset="200" data-scroll-repeat="true" data-scroll-speed="0">The Works</h1>
             <h2 class="split2">
-                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="0" data-scroll-repeat="true" data-offset="0.8" style="--line-index:0;">
+                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="100" data-scroll-repeat="true" data-offset="0.8" style="--line-index:0;">
                     <span class="line-pres">
-                        Nous somme un stundio digital &amp; créatif basé à Paris,
+                        I love what I do and I do a lot.
                     </span>
                 </span>
-                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="0" data-scroll-repeat="true" data-offset="0.8" style="--line-index:1;">
+                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="100" data-scroll-repeat="true" data-offset="0.8" style="--line-index:1;">
                     <span class="line-pres">
-                        nous apportons des solutions créatives et
+                        I have been fortunate enough to collaborate with a lot of
                     </span>
                 </span>
-                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="0" data-scroll-repeat="true" data-offset="0.8" style="--line-index:2;">
+                <span class="line-mak data-scroll-M" data-scroll="" data-scroll-offset="100" data-scroll-repeat="true" data-offset="0.8" style="--line-index:2;">
                     <span class="line-pres">
-                        stratégiques pour votre marque.
+                         talented people that helped me grow as a creative mind.
                     </span>
                 </span>
             </h2>
 
-            <hr>
+            <hr data-scroll="" data-scroll-offset="100">
 
-            <div class="works-list">
-                <p><span>01.</span>ERP Philipworks</p>
-                <p><span>02.</span>ERP PT PMPS  </p>
-                <p><span>03.</span>RILIS  </p>
-                <p><span>04.</span>Mazda Asia Afrika</p>
-                <p><span>05.</span>PT Pancamas Pipasakti</p>
-                <p><span>06.</span>PT Sinarmas Gar</p>
-                <p><span>07.</span>Plantrip</p>
-                <p data-url="mjstextile.com"><span>08.</span>PT Mahugi Jaya Sejahtera</p>
-                <p data-url="siaptextile.co.id"><span>09.</span>PT SIAP Textile</p>
-                <p data-url="mahkotapropertindo.com"><span>10.</span>Mahkota Propertindo</p>
-                <p data-url="com.net.id"><span>11.</span>Comtronics Systems</p>
-                <p data-url="tirtagraciaabadi.co.id"><span>12.</span>PT Tirta Gracia Abadi</p>
-                <p data-url="aquaproof.co.id"><span>13.</span>Aquaproof</p>
-                <p data-url="xenos.co.id"><span>14.</span>PT XENOS</p>
-                <p data-url="dswip.com"><span>15.</span>Dswip Kreasindo</p>
-                <p data-url="eps.sch.id"><span>16.</span>Edu Prime School</p>
-                <p><span>17.</span>Aice</p>
-                <p><span>18.</span>Tour D Indonesia</p>
-                <p><span>19.</span>Kec. Sumur Bandung </p>
-                <p><span>20.</span>SMILE Foundation</p>
-                <p><span>21.</span>PP PAUDDIKMAS JABAR</p>
-
-
+            <div class="works-list" data-scroll data-scroll-speed="0" data-target-offset="900" data-scroll-repeat="true">
+                <div></div>
             </div>
         </section>
     </div>
@@ -172,12 +150,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="./locomotive-scroll.min.js"></script>
     <script>
-        (function () {
-            const scroll = new LocomotiveScroll({
-                el: document.querySelector('[data-scroll-container]'),
-                smooth: true,
-            });
-        })();
+
 
         const mainTitle = document.getElementById('main-title')
         const parallaxes = [
@@ -199,6 +172,148 @@
                 }
             }
         ]
+        const halfWindowY = Math.floor(window.innerHeight / 2)
+        const halfWindowX = Math.floor(window.innerWidth / 2)
+        const hands = document.querySelectorAll('.img-hand')
+        const workListContainer = document.querySelector('.works-list > div')
+        const leftHandContainer = document.getElementById("scene-left-hand")
+        const rightHandContainer = document.getElementById("scene-right-hand")
+        const works = [
+            {
+               label: 'ERP Philipworks',
+               private: true,
+            },
+            {
+               private: true,
+               label: 'ERP PT PMPS',
+            },
+            {
+               private: true,
+               label: 'RILIS',
+            },
+            {
+               label: 'Mazda Asia Afrika',
+               url: 'https://www.behance.net/gallery/127233381/MAZDA-ASIA-AFRIKA'
+            },
+            {
+               label: 'PT Pancamas Pipasakti',
+               url: 'http://pmps.compro.eigen.co.id/'
+            },
+            {
+               label: 'PT Sinarmas Gar',
+               url: 'https://rionalab.github.io/sinarmas-gar'
+            },
+            {
+               private: true,
+               label: 'Plantrip',
+            },
+            {
+               url: 'https://dribbble.com/shots/16431082-Design-Concept-Grand-Property',
+               label: 'Grand Property',
+            },
+            {
+               url: 'https://dribbble.com/shots/16431190-OLKB',
+               label: 'OLKB',
+            },
+            {
+               label: 'PT Mahugi Jaya Sejahtera',
+               url: 'https://mjstextile.com/',
+            },
+            {
+               label: 'PT SIAP Textile',
+               url: 'https://siaptextile.co.id/',
+            },
+            {
+               label: 'Mahkota Propertindo',
+               url: 'http://mahkotapropertindo.com/',
+            },
+            {
+               label: 'Comtronics Systems',
+               url: 'https://com.net.id/',
+            },
+            {
+               label: 'PT Tirta Gracia Abadi',
+               url: 'http://tirtagraciaabadi.co.id/',
+            },
+            {
+               label: 'Aquaproof',
+               url: 'https://aquaproof.co.id/',
+            },
+            {
+               label: 'PT XENOS',
+               url: 'https://xenos.co.id/',
+            },
+            {
+               label: 'Dswip Kreasindo',
+               url: 'https://dswip.com/',
+            },
+            {
+               label: 'Edu Prime School',
+               url: 'http://eps.sch.id',
+            },
+            {
+               label: 'Aice #PejuangSenyum',
+               private: true,
+            },
+            {
+               label: 'Tour D Indonesia',
+               url: 'http://tourdindonesia.com/',
+            },
+            {
+               label: 'Kec. Sumur Bandung',
+               url: 'https://dribbble.com/shots/16431284-sumurbandung-bandung-go-id',
+            },
+            {
+               label: 'SMILE Foundation',
+               url: 'https://dribbble.com/shots/16431258-SMILE-FOUNDATION',
+            },
+            {
+               label: 'PP PAUDDIKMAS JABAR',
+               url: 'https://dribbble.com/shots/16431242-PP-PAUDDIKMAS-JABAR',
+            },
+        ]
+        let shadowY = -200
+        let shadowX = 0
+        let latestScrollPos = 0;
+        const gotoExternal = (el) => {
+            const url = el.dataset.url
+            if(url) {
+                window.open(url, '_blank')
+            }
+        }
+        const printWorks = () => {
+
+            const htmlWorks = works.map((work, i) => {
+                return `
+                    <div>
+                    <p data-url="${work?.url ? work.url : ''}" onclick="gotoExternal(this)">
+                    <span>${String(i + 1).length < 2 ? `0${i + 1}` : i + 1}.</span>
+                    <span>${work.label}</span>
+                    ${
+                        work?.private ? `<img src="./images/restriction.png" />`:``
+                    }
+                    ${
+                        work?.url ? `<img class="b" src="./images/export.png" />`:``
+
+                    }
+                    </p>
+                    </div>
+                `
+            }).join('')
+
+            workListContainer.innerHTML = htmlWorks
+
+        }
+
+        (function () {
+
+            printWorks()
+
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector('[data-scroll-container]'),
+                smooth: true,
+            });
+        })();
 
         parallaxes.forEach(parallax => {
             new Parallax(
@@ -206,20 +321,6 @@
                 parallax.opts
             )
         })
-        document.querySelectorAll('#main-title span').forEach(span => {
-            span.addEventListener("mouseover", e => {
-
-            })
-        })
-
-        const halfWindowY = Math.floor(window.innerHeight / 2)
-        const halfWindowX = Math.floor(window.innerWidth / 2)
-        const hands = document.querySelectorAll('.img-hand')
-        const leftHandContainer = document.getElementById("scene-left-hand")
-        const rightHandContainer = document.getElementById("scene-right-hand")
-        let shadowY = -200
-        let shadowX = 0
-        let latestScrollPos = 0;
 
         window.addEventListener("mousemove", e => {
             const  { clientY, clientX } = e;

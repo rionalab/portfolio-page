@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap');
 
 @mixin fixedTop {
     position: fixed;
@@ -113,7 +113,6 @@ section {
         position: relative;
         background: rgb(255,255,255);
         background: radial-gradient(circle, rgba(255,255,255,1) 0%, #ccc 100%);
-        display: none;
         &::before {
             position: absolute;
             width: calc(100vw - 55px);
@@ -184,17 +183,23 @@ section {
             font-size: 40px;
             letter-spacing: 18px;
             animation: mainTitle 3s;
+            &:hover {
+                letter-spacing: 40px;
+                font-size: 1111px;
+            }
             span {
+                background: transparent !important;
                 transition: all 1s;
                 margin:0 0;
                 display: inline-block;
                 &:hover {
-                    text-shadow: 30px 5px 0px rgba(0,0,0,.1);
-                    margin: 0 5px;
-                    transform: scale(2);
-                    transition: all .2s;
-                    filter: blur(3px);
-                    // color: red;
+                    // text-shadow: 30px 5px 0px rgba(0,0,0,.1);
+                    // margin: 0 5px;
+                    // transform: scale(2);
+                    // transition: all .2s;
+                    // filter: blur(3px);
+                background: red !important;
+                    color: red;
                 }
             }
         }
@@ -206,7 +211,6 @@ section {
     }
     &.quote1 {
         overflow: hidden;
-        display: none;
         background: rgb(190,255,0);
         background: linear-gradient(45deg, rgba(190,255,0,1) 0%, rgba(255,243,0,1) 100%);
         padding: 30vh 3vw 35vh;
@@ -279,7 +283,6 @@ section {
             position: relative;
             text-transform: none;
             max-width: 100%;
-            font: 300 normal 1.4vw/1.8vw 'Suisse Intl Light';
         }
         .line-mak{
             overflow: hidden;
@@ -326,28 +329,115 @@ section {
             }
         }
         hr {
-            margin-top: 40px;
+            margin: 80px -50px;
             border:0;
             border-top: 3px solid #111;
-            margin-left: -50px ;
-            margin-right: -50px ;
+
+            width: 0;
+            &.is-inview {
+                transition: all 1s cubic-bezier(.215,.61,.355,1);
+                width: 100%;
+            }
+        }
+        h2 {
+            span {
+
+                font-family: 'Roboto', sans-serif !important;
+            }
         }
         .works-list {
             margin-top: 50px;
-            columns: 200px 3;
-            p {
-                color: #888;
-                font-size: 24px;
-                margin-bottom: 24px;
-                position: relative;
-                span {
-                    position: absolute;
-                    left: -25px;
-                    top: -3px;
-                    font-family: 'Roboto', sans-serif;
-                    font-size: 11px;
-                    color: #bbb;
-                    // font-weight: 600;
+            & > div {
+                & > div {
+                    p {
+                        color: #555;
+                        font-size: 24px;
+                        display: inline-block;
+                        position: relative;
+                        cursor: pointer;
+                        opacity: 0;
+                        white-space: nowrap;
+                        &:hover {
+                            span {
+                                &:nth-child(2){
+                                    color: #00ff95;
+                                    transition: all .3s;
+                                    letter-spacing: 5px;
+                                    // transform: scale(1.4);
+                                    // text-shadow: 10px -10px 10px black;
+                                    &::before {
+                                        width: 110%;
+                                        left: 50%;
+                                        transform: skew(-10deg) translateX(-50%);
+                                        transition: all .6s;
+                                    }
+                                }
+                            }
+                            img {
+                                animation:fadeInLeft 1.5s forwards;
+                                display: inline-block;
+                            }
+                        }
+                        span {
+                            &:nth-child(2) {
+                                display: inline-block;
+                                font-family: 'Roboto', sans-serif !important;
+                                margin-left: 12px;
+                                transition: all .3s;
+                                letter-spacing: 0px;
+                                position: relative;
+                                font-size: 74px;
+                                font-weight: 900;
+
+                                &::before {
+                                    position: absolute;
+                                    background: black;
+                                    display: inline-block;
+                                    height: 100%;
+                                    width: 0%;
+                                    left: 50%;
+                                    bottom: -5%;
+                                    transform: translateX(-50%);
+                                    z-index: -1;
+                                    transition: all .3s;
+                                    content: '';
+                                }
+                            }
+                            &:nth-child(1) {
+                                    position: absolute;
+                                    left: -40px;
+                                    top: 13px;
+                                    font-family: 'Roboto', sans-serif;
+                                    font-size: 32px;
+                                    font-weight: 400;
+                                    color: #00ff95;
+                                    display: inline-block;
+                                    transform: rotate(-90deg);
+                            }
+                        }
+                        img {
+                            width: 100px;
+                            display: none;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            position: absolute;
+                            margin-left: 50px;
+                            opacity: 0;
+                            &.b {
+                                width: 77px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.is-inview {
+                p {
+                    @for $i from 1 through 21 {
+                        &:nth-child(#{$i}) {
+                            animation: fadeUp .6s forwards;
+                            animation-delay: #{$i/10}s;
+                        }
+                    }
                 }
             }
         }
@@ -447,6 +537,26 @@ section {
 }
 
 
+@keyframes fadeInLeft {
+    0% {
+        transform: translate(-80px, -50%);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(30px, -50%);
+    }
+}
+@keyframes fadeUp {
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 @keyframes scrolldown {
     0% {
         transform: translateY(0px);
